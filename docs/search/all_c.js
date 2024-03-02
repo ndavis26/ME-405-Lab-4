@@ -1,11 +1,8 @@
 var searchData=
 [
-  ['serv_0',['serv',['../namespaceservo__updated.html#a3f9d6703209104b27c903efd36fec04f',1,'servo_updated']]],
-  ['servo_1',['Servo',['../classservo__updated_1_1_servo.html',1,'servo_updated']]],
-  ['servo_5fupdated_2',['servo_updated',['../namespaceservo__updated.html',1,'']]],
-  ['servo_5fupdated_2epy_3',['servo_updated.py',['../servo__updated_8py.html',1,'']]],
-  ['set_5fduty_5fcycle_4',['set_duty_cycle',['../classmotor__driver__updated_1_1_motor_driver.html#ac82fdf83114db801a996ab51cda13d90',1,'motor_driver_updated::MotorDriver']]],
-  ['set_5fkp_5',['set_Kp',['../classservo__updated_1_1_servo.html#ad576fe5c53907e17bfdc0300f3ebede4',1,'servo_updated::Servo']]],
-  ['set_5fsetpoint_6',['set_setpoint',['../classservo__updated_1_1_servo.html#ac810dfc8913406a47ec94a40efe9d165',1,'servo_updated::Servo']]],
-  ['share0_7',['share0',['../namespacemain.html#ac3505f4f6f9708de6f1019b15e452481',1,'main']]]
+  ['task1_0',['task1',['../namespacemain.html#af4b8f4290f8d32e70654f6deb864787f',1,'main']]],
+  ['task1_5ffun_1',['task1_fun',['../namespacemain.html#ac687db0c6f6d6d7232f47d8f1cbfb85d',1,'main']]],
+  ['task2_2',['task2',['../namespacemain.html#a99d189b8f9eb3784cf7d4e5c3241b562',1,'main']]],
+  ['task2_5ffun_3',['task2_fun',['../namespacemain.html#a2e7d910a4efb4cb27c86a900b7463c20',1,'main']]],
+  ['times_4',['times',['../namespaceservo__updated.html#a872a404d6dca13fb0b0b94a8c3b2f6ca',1,'servo_updated']]]
 ];

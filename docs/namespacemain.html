@@ -29,7 +29,7 @@
   <td id="projectalign">
    <div id="projectname">Lab 4
    </div>
-   <div id="projectbrief">Multi Motor Control</div>
+   <div id="projectbrief">Creates Servo class and runs position vs. time test</div>
   </td>
  </tr>
  </tbody>
@@ -102,17 +102,18 @@ $(function(){initNavTree('namespacemain.html',''); initResizable(); });
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ac687db0c6f6d6d7232f47d8f1cbfb85d" id="r_ac687db0c6f6d6d7232f47d8f1cbfb85d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac687db0c6f6d6d7232f47d8f1cbfb85d">task1_fun</a> ()</td></tr>
-<tr class="memdesc:ac687db0c6f6d6d7232f47d8f1cbfb85d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Task which puts things into a share and a queue.  <br /></td></tr>
+<tr class="memdesc:ac687db0c6f6d6d7232f47d8f1cbfb85d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This task runs the first motor.  <br /></td></tr>
 <tr class="separator:ac687db0c6f6d6d7232f47d8f1cbfb85d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e7d910a4efb4cb27c86a900b7463c20" id="r_a2e7d910a4efb4cb27c86a900b7463c20"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2e7d910a4efb4cb27c86a900b7463c20">task2_fun</a> ()</td></tr>
+<tr class="memdesc:a2e7d910a4efb4cb27c86a900b7463c20"><td class="mdescLeft">&#160;</td><td class="mdescRight">This task runs the second motor.It moves the motor to a negative setpoint.  <br /></td></tr>
+<tr class="separator:a2e7d910a4efb4cb27c86a900b7463c20"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ac3505f4f6f9708de6f1019b15e452481" id="r_ac3505f4f6f9708de6f1019b15e452481"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac3505f4f6f9708de6f1019b15e452481">share0</a> = task_share.Share('h', thread_protect=False, name=&quot;Share 0&quot;)</td></tr>
-<tr class="separator:ac3505f4f6f9708de6f1019b15e452481"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a620a5632d27d7ea28386055b4e7b37fd" id="r_a620a5632d27d7ea28386055b4e7b37fd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a620a5632d27d7ea28386055b4e7b37fd">q0</a></td></tr>
-<tr class="separator:a620a5632d27d7ea28386055b4e7b37fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4b8f4290f8d32e70654f6deb864787f" id="r_af4b8f4290f8d32e70654f6deb864787f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af4b8f4290f8d32e70654f6deb864787f">task1</a></td></tr>
+<tr class="memitem:af4b8f4290f8d32e70654f6deb864787f" id="r_af4b8f4290f8d32e70654f6deb864787f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af4b8f4290f8d32e70654f6deb864787f">task1</a> = cotask.Task(<a class="el" href="#ac687db0c6f6d6d7232f47d8f1cbfb85d">task1_fun</a>, name=&quot;Motor 1&quot;, priority=1, period=30, profile=True, trace=False)</td></tr>
 <tr class="separator:af4b8f4290f8d32e70654f6deb864787f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99d189b8f9eb3784cf7d4e5c3241b562" id="r_a99d189b8f9eb3784cf7d4e5c3241b562"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a99d189b8f9eb3784cf7d4e5c3241b562">task2</a> = cotask.Task(<a class="el" href="#a2e7d910a4efb4cb27c86a900b7463c20">task2_fun</a>, name=&quot;Motor 2&quot;, priority=2, period=30, profile=True, trace=False)</td></tr>
+<tr class="separator:a99d189b8f9eb3784cf7d4e5c3241b562"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="ac687db0c6f6d6d7232f47d8f1cbfb85d" name="ac687db0c6f6d6d7232f47d8f1cbfb85d"></a>
@@ -130,47 +131,31 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Task which puts things into a share and a queue. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">shares</td><td>A list holding the share and queue used by this task </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>This task runs the first motor. </p>
+<p>It moves the motor to a positive setpoint. </p>
+
+</div>
+</div>
+<a id="a2e7d910a4efb4cb27c86a900b7463c20" name="a2e7d910a4efb4cb27c86a900b7463c20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e7d910a4efb4cb27c86a900b7463c20">&#9670;&#160;</a></span>task2_fun()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">main.task2_fun </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This task runs the second motor.It moves the motor to a negative setpoint. </p>
 
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="a620a5632d27d7ea28386055b4e7b37fd" name="a620a5632d27d7ea28386055b4e7b37fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a620a5632d27d7ea28386055b4e7b37fd">&#9670;&#160;</a></span>q0</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">main.q0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line"><span class="lineno">    1</span>=  task_share.Queue(<span class="stringliteral">&#39;L&#39;</span>, 16, thread_protect=<span class="keyword">False</span>, overwrite=<span class="keyword">False</span>,</div>
-<div class="line"><span class="lineno">    2</span>                          name=<span class="stringliteral">&quot;Queue 0&quot;</span>)</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="ac3505f4f6f9708de6f1019b15e452481" name="ac3505f4f6f9708de6f1019b15e452481"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac3505f4f6f9708de6f1019b15e452481">&#9670;&#160;</a></span>share0</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">main.share0 = task_share.Share('h', thread_protect=False, name=&quot;Share 0&quot;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="af4b8f4290f8d32e70654f6deb864787f" name="af4b8f4290f8d32e70654f6deb864787f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af4b8f4290f8d32e70654f6deb864787f">&#9670;&#160;</a></span>task1</h2>
 
@@ -178,13 +163,25 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">main.task1</td>
+          <td class="memname">main.task1 = cotask.Task(<a class="el" href="#ac687db0c6f6d6d7232f47d8f1cbfb85d">task1_fun</a>, name=&quot;Motor 1&quot;, priority=1, period=30, profile=True, trace=False)</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line"><span class="lineno">    1</span>=  cotask.Task(task1_fun, name=<span class="stringliteral">&quot;Motor 1&quot;</span>, priority=1, period=20,</div>
-<div class="line"><span class="lineno">    2</span>                        profile=<span class="keyword">True</span>, trace=<span class="keyword">False</span>)</div>
-</div><!-- fragment -->
+
+</div>
+</div>
+<a id="a99d189b8f9eb3784cf7d4e5c3241b562" name="a99d189b8f9eb3784cf7d4e5c3241b562"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99d189b8f9eb3784cf7d4e5c3241b562">&#9670;&#160;</a></span>task2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">main.task2 = cotask.Task(<a class="el" href="#a2e7d910a4efb4cb27c86a900b7463c20">task2_fun</a>, name=&quot;Motor 2&quot;, priority=2, period=30, profile=True, trace=False)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
 </div>
 </div>
 </div><!-- contents -->

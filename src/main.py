@@ -1,6 +1,6 @@
 """! @file main.py
 Runs two motors simultaneously.
-@author Nathaniel Davis an Sebastian Bessoudo
+@author Nathaniel Davis and Sebastian Bessoudo
 @date   3-1-2024
 """
 
@@ -16,20 +16,14 @@ from servo_updated import Servo
 
 def task1_fun():
     """!
-    Task which puts things into a share and a queue.
-    @param shares A list holding the share and queue used by this task
+    This task runs the first motor. It moves the motor to a positive setpoint.
     """
-    
-    # run motor response test
     # set up MotorDriver class object
     moe1 = MotorDriver(pyb.Pin.board.PA10, pyb.Pin.board.PB4, 1,  pyb.Pin.board.PB5, 2, 3)
     # set up Encoder class object
     enc1 = Encoder(pyb.Pin.board.PC6, pyb.Pin.board.PC7, 8, 1, 2)
     # set up Servo class object using the MotorDriver and Encoder objects specified
     serv1 = Servo(moe1, enc1)
-    
-    # number of data points to run test for (each data point is 10 ms apart)
-    
     # run ad infinitum
     while True:
         # Kp
@@ -39,7 +33,7 @@ def task1_fun():
         input_setp = 100000
         serv1.set_setpoint(input_setp)
         
-        # repeatedly saves position value every 10 ms 
+        # repeatedly checks setpoint every time task is queued 
         while True:
             serv1.set_setpoint(input_setp)
             yield 
@@ -47,20 +41,15 @@ def task1_fun():
 
 def task2_fun():
     """!
-    Task which takes things out of a queue and share and displays them.
-    @param shares A tuple of a share and queue from which this task gets data
+    This task runs the second motor.It moves the motor to a negative setpoint.
     """
-    # run motor response test
     # set up MotorDriver class object
     moe2 = MotorDriver(pyb.Pin.board.PC1, pyb.Pin.board.PA0, 1,  pyb.Pin.board.PA1, 2, 5)
     # set up Encoder class object
     enc2 = Encoder(pyb.Pin.board.PB6, pyb.Pin.board.PB7, 4, 1, 2)
     # set up Servo class object using the MotorDriver and Encoder objects specified
     serv2 = Servo(moe2, enc2)
-    
-    # number of data points to run test for (each data point is 10 ms apart)
-    
-    # run test ad infinitum
+    # run ad infinitum
     while True:
         # Kp
         input_kp = 0.05
@@ -69,7 +58,7 @@ def task2_fun():
         input_setp = -150000
         serv2.set_setpoint(input_setp)
         
-        # repeatedly saves position value every 10 ms 
+        # repeatedly checks setpoint every time task is queued
         while True:
             serv2.set_setpoint(input_setp)
             yield 

@@ -29,7 +29,7 @@
   <td id="projectalign">
    <div id="projectname">Lab 4
    </div>
-   <div id="projectbrief">Multi Motor Control</div>
+   <div id="projectbrief">Creates Servo class and runs position vs. time test</div>
   </td>
  </tr>
  </tbody>
@@ -100,7 +100,7 @@ $(function(){initNavTree('main_8py.html',''); initResizable(); });
 </div><!--header-->
 <div class="contents">
 
-<p>This file contains a demonstration program that runs some tasks, an inter-task shared variable, and a queue.  
+<p>Runs two motors simultaneously.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -111,31 +111,23 @@ Namespaces</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ac687db0c6f6d6d7232f47d8f1cbfb85d" id="r_ac687db0c6f6d6d7232f47d8f1cbfb85d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#ac687db0c6f6d6d7232f47d8f1cbfb85d">main.task1_fun</a> ()</td></tr>
-<tr class="memdesc:ac687db0c6f6d6d7232f47d8f1cbfb85d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Task which puts things into a share and a queue.  <br /></td></tr>
+<tr class="memdesc:ac687db0c6f6d6d7232f47d8f1cbfb85d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This task runs the first motor.  <br /></td></tr>
 <tr class="separator:ac687db0c6f6d6d7232f47d8f1cbfb85d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e7d910a4efb4cb27c86a900b7463c20" id="r_a2e7d910a4efb4cb27c86a900b7463c20"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#a2e7d910a4efb4cb27c86a900b7463c20">main.task2_fun</a> ()</td></tr>
+<tr class="memdesc:a2e7d910a4efb4cb27c86a900b7463c20"><td class="mdescLeft">&#160;</td><td class="mdescRight">This task runs the second motor.It moves the motor to a negative setpoint.  <br /></td></tr>
+<tr class="separator:a2e7d910a4efb4cb27c86a900b7463c20"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ac3505f4f6f9708de6f1019b15e452481" id="r_ac3505f4f6f9708de6f1019b15e452481"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#ac3505f4f6f9708de6f1019b15e452481">main.share0</a> = task_share.Share('h', thread_protect=False, name=&quot;Share 0&quot;)</td></tr>
-<tr class="separator:ac3505f4f6f9708de6f1019b15e452481"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a620a5632d27d7ea28386055b4e7b37fd" id="r_a620a5632d27d7ea28386055b4e7b37fd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#a620a5632d27d7ea28386055b4e7b37fd">main.q0</a></td></tr>
-<tr class="separator:a620a5632d27d7ea28386055b4e7b37fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4b8f4290f8d32e70654f6deb864787f" id="r_af4b8f4290f8d32e70654f6deb864787f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#af4b8f4290f8d32e70654f6deb864787f">main.task1</a></td></tr>
+<tr class="memitem:af4b8f4290f8d32e70654f6deb864787f" id="r_af4b8f4290f8d32e70654f6deb864787f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#af4b8f4290f8d32e70654f6deb864787f">main.task1</a> = cotask.Task(<a class="el" href="namespacemain.html#ac687db0c6f6d6d7232f47d8f1cbfb85d">task1_fun</a>, name=&quot;Motor 1&quot;, priority=1, period=30, profile=True, trace=False)</td></tr>
 <tr class="separator:af4b8f4290f8d32e70654f6deb864787f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99d189b8f9eb3784cf7d4e5c3241b562" id="r_a99d189b8f9eb3784cf7d4e5c3241b562"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemain.html#a99d189b8f9eb3784cf7d4e5c3241b562">main.task2</a> = cotask.Task(<a class="el" href="namespacemain.html#a2e7d910a4efb4cb27c86a900b7463c20">task2_fun</a>, name=&quot;Motor 2&quot;, priority=2, period=30, profile=True, trace=False)</td></tr>
+<tr class="separator:a99d189b8f9eb3784cf7d4e5c3241b562"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This file contains a demonstration program that runs some tasks, an inter-task shared variable, and a queue. </p>
-<p>Takes account of time as it measures the number of ticks to measure its distance into a list This becomes graphed onto a a TK window with a Matplotlib plot.</p>
-<p>The tasks don't really <b>do</b> anything; the example just shows how these elements are created and run.</p>
-<dl class="section author"><dt>Author</dt><dd>Nathaniel Davis an Sebastian Bessoudo </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2021-Dec-15 JRR Created from the remains of previous example </dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>(c) 2015-2021 by JR Ridgely and released under the GNU Public License, Version 2.</dd></dl>
-<dl class="section author"><dt>Author</dt><dd>Nathaniel Davis </dd>
-<dd>
-Sebastian Bessoudo </dd>
-<dd>
-reference: </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2024-2-21 </dd></dl>
+<div class="textblock"><p>Runs two motors simultaneously. </p>
+<dl class="section author"><dt>Author</dt><dd>Nathaniel Davis and Sebastian Bessoudo </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>3-1-2024 </dd></dl>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
