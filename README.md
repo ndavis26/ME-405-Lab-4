@@ -12,5 +12,5 @@ We then took it down to 40ms and it gave us a better plot compared to the 50ms p
 
 Therefore we determined 30ms to be the best rate. 
 
-The next part  of the lab was to use an example of a task function and modify it by having it run two separate motors simultaneously, either with the same or different rates. 
+The next part  of the lab was to use an example of a task function and modify it by having it run two separate motors simultaneously, either with the same or different rates. We tested both motors to run at the same time when they were at different Kp or different setpoints. Both motors are running well and there have not been any bugs or errors in the code when we ran the code. 
 
